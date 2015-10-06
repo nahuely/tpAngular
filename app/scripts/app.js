@@ -18,5 +18,8 @@ angular
     'geolocation',
     'uiGmapgoogle-maps',
     'ui.router',
-    'eventsApp.routes'
+    'eventsApp.routes',
+    'eventsApp.contact',
+    'eventsApp.home',
+    'eventsApp.myEvents'
   ])

@@ -5,49 +5,59 @@
 		$stateProvider
 			.state('home', {
 				url: '/home',
-				templateUrl: 'layout/layout.html',
+				templateUrl: 'views/layout/mainLayout.html',
 				abstract: true
 			})
-			.state('home.cotizacion', {
-				url: '/cotizacion',
-				views: {
-					'tab-cotizacion': {
-						templateUrl: 'cotizacion/cotizacionView.html',
-						controller: 'homeCotizacion as Cotizacion',
-						resolve: {
-							cotizaciones: function(cotizacionFactory) {
-								return cotizacionFactory.getCotizaciones()
-									.then(function(data) {
-										return data;
-									})
-									.catch(function(err) {
-										return err;
-									})
-							}
-						}
+			.state('home.main', {
+				url: '/main',
+				templateUrl: 'views/main.html',
+				controller: 'homeCtrl as Main'/*,
+				resolve: {
+					cotizaciones: function(cotizacionFactory) {
+						return cotizacionFactory.getCotizaciones()
+							.then(function(data) {
+								return data;
+							})
+							.catch(function(err) {
+								return err;
+							})
 					}
-				}				
+				}*/
 			})
-			.state('home.myEvents', {
-				url: '/calculadora',
-				views: {
-					'tab-calculadora': {
-						templateUrl: 'calculadora/calculadoraView.html',
-						controller: 'homeCalc as Calculadora'
+			.state('home.myevents', {
+				url: '/myevents',
+				templateUrl: 'views/myevents.html',
+				controller: 'myEventsCtrl as myEvents'/*,
+				resolve: {
+					cotizaciones: function(cotizacionFactory) {
+						return cotizacionFactory.getCotizaciones()
+							.then(function(data) {
+								return data;
+							})
+							.catch(function(err) {
+								return err;
+							})
 					}
-				}
+				}*/
 			})
-			.state('home.aboutUs', {
-				url: '/ahorro',
-				views: {
-					'tab-ahorro': {
-						templateUrl: 'ahorro/ahorroView.html',
-						controller: 'homeAhorro as Ahorro'
+			.state('home.contact', {
+				url: '/contact',
+				templateUrl: 'views/contact.html',
+				controller: 'contactCtrl as Contact'/*,
+				resolve: {
+					cotizaciones: function(cotizacionFactory) {
+						return cotizacionFactory.getCotizaciones()
+							.then(function(data) {
+								return data;
+							})
+							.catch(function(err) {
+								return err;
+							})
 					}
-				}
+				}*/
 			})
 
-		$urlRouterProvider.otherwise('/home/cotizacion');
+		$urlRouterProvider.otherwise('/home/main');
 	}
 
 	angular.module('eventsApp.routes', [])
