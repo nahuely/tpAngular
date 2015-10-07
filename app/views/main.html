@@ -1,1 +1,6 @@
-main.html
+<div map-lazy-load="http://maps.google.com/maps/api/js">
+  <map center="{{Main.location.lat}},{{Main.location.long}}" zoom="15">
+  	<marker position="[{{Main.location.lat}}, {{Main.location.long}}]" title="yo"></marker>
+  	<marker ng-repeat="evento in Main.eventosArr" position="[{{evento.location.latitude}}, {{evento.location.longitude}}]" title="{{evento.name}}" icon="//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"></marker>
+  </map>
+</div>

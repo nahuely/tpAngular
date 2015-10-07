@@ -11,18 +11,23 @@
 			.state('home.main', {
 				url: '/main',
 				templateUrl: 'views/main.html',
-				controller: 'homeCtrl as Main'/*,
+				controller: 'homeCtrl as Main',
 				resolve: {
-					cotizaciones: function(cotizacionFactory) {
-						return cotizacionFactory.getCotizaciones()
-							.then(function(data) {
-								return data;
+					eventos: function(homeFactory) {
+						return homeFactory.getLocation()
+							.then(function(location) {
+								homeFactory.setLocationStorage(location.coords);
+								return homeFactory.getFacebookEvents(location);
 							})
-							.catch(function(err) {
-								return err;
+							.then(function(events) {
+								console.log(events)
+								return events;
+							})
+							.catch(function(error) {
+								return error;
 							})
 					}
-				}*/
+				}
 			})
 			.state('home.myevents', {
 				url: '/myevents',
