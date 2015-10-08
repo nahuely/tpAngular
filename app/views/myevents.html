@@ -1,1 +1,13 @@
-myevents.html
+<div class="row">
+  <div class="col-sm-6 col-md-4" ng-repeat="evento in events">
+    <div class="thumbnail">
+      <i class="ion-close-round"></i>
+      <img src="https://placeholdit.imgix.net/~text?txtsize=23&txt=242%C3%97200&w=242&h=200" alt="...">
+      <div class="caption">
+        <h3>{{evento.nombre}}</h3>
+        <p>{{evento.telefono}}</p>
+        <p><a href="#" class="btn btn-default" role="button">Ver en Facebook</a></p>
+      </div>
+    </div>
+  </div>
+</div
