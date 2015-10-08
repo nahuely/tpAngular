@@ -36,10 +36,6 @@
                 resolve: {
                     eventos: function(myEventsFactory) {
                         return myEventsFactory.getLocalStorage()
-                            .catch(function(err) {
-                                console.log(err)
-                                return err;
-                            })
                     }
                 }
             })

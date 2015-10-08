@@ -21,6 +21,10 @@
             
             return newArray;
         }
+        methods.getFacebook = function(obj){
+            console.log(this)
+            window.open('www.facebook.com/'+obj.id,'_blank');
+        }
 
         return methods;
     }
