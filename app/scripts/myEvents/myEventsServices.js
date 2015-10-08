@@ -8,17 +8,20 @@
             return angular.toJson($window.localStorage.getItem(key));
         }
 
-        methods.setLocalStorage = function(obj, key) {
-            var newArray = this.getLocalStorage(key);
+        methods.deleteFromLocalStorage = function(key, id){
+            var newArray = this.getLocalStorage();
 
-            if(newArray.length == 0){
-            	newArray = [];       
+            for(var i=0; i < newArray.length; i++){
+                if(newArray[i].id == id){
+                    newArray = newArray.splice(newArray[i], 1)
+                }
             }
 
-            newArray.push(obj);
             $window.localStorage.setItem(key, angular.fromJson(newArray));
+            
+            return newArray;
         }
-        
+
         return methods;
     }
 

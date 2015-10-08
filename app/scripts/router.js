@@ -32,36 +32,33 @@
             .state('home.myevents', {
                 url: '/myevents',
                 templateUrl: 'views/myevents.html',
-                controller: 'myEventsCtrl as myEvents'
-                    /*,
-                    				resolve: {
-                    					cotizaciones: function(cotizacionFactory) {
-                    						return cotizacionFactory.getCotizaciones()
-                    							.then(function(data) {
-                    								return data;
-                    							})
-                    							.catch(function(err) {
-                    								return err;
-                    							})
-                    					}
-                    				}*/
+                controller: 'myEventsCtrl as myEvents',
+                resolve: {
+                    eventos: function(myEventsFactory) {
+                        return myEventsFactory.getLocalStorage()
+                            .catch(function(err) {
+                                console.log(err)
+                                return err;
+                            })
+                    }
+                }
             })
             .state('home.contact', {
                 url: '/contact',
                 templateUrl: 'views/contact.html',
                 controller: 'contactCtrl as Contact'
                     /*,
-                    				resolve: {
-                    					cotizaciones: function(cotizacionFactory) {
-                    						return cotizacionFactory.getCotizaciones()
-                    							.then(function(data) {
-                    								return data;
-                    							})
-                    							.catch(function(err) {
-                    								return err;
-                    							})
-                    					}
-                    				}*/
+                                    resolve: {
+                                        cotizaciones: function(cotizacionFactory) {
+                                            return cotizacionFactory.getCotizaciones()
+                                                .then(function(data) {
+                                                    return data;
+                                                })
+                                                .catch(function(err) {
+                                                    return err;
+                                                })
+                                        }
+                                    }*/
             })
 
         $urlRouterProvider.otherwise('/home/main');
