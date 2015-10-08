@@ -6,7 +6,16 @@
 
         if (eventos) {
             vm.location = homeFactory.getLocationStorage();
+            vm.icon = '//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
             vm.eventosArr = homeFactory.parseFacebookEvents(eventos);
+            vm.map = {
+                center: {
+                    latitude: vm.location.lat,
+                    longitude: vm.location.long
+                },
+                zoom: 15
+            };
+            console.log(vm.eventosArr)
         }
     }
 

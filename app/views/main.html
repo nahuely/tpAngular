@@ -1,6 +1,13 @@
-<div map-lazy-load="http://maps.google.com/maps/api/js">
-  <map center="{{Main.location.lat}},{{Main.location.long}}" zoom="15">
-  	<marker position="[{{Main.location.lat}}, {{Main.location.long}}]" title="yo"></marker>
-  	<marker ng-repeat="evento in Main.eventosArr" position="[{{evento.location.latitude}}, {{evento.location.longitude}}]" title="{{evento.name}}" icon="//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"></marker>
-  </map>
-</div>
+<ui-gmap-google-map center='Main.map.center' zoom='Main.map.zoom'>
+    <ui-gmap-marker coords='{latitude: Main.location.lat, longitude: Main.location.long}' idkey="100"></ui-gmap-marker>
+    <ui-gmap-markers models="Main.eventosArr" coords="'self'" icon="'icon'">
+		<ui-gmap-windows show="show">
+            <div ng-non-bindable>
+            	<img class="img-map" src="{{img}}" alt="">
+            	<h6>{{name}}</h6>
+				<p>{{description}}</p>
+				<button class="btn btn-success" ng-click="addEvent(this)">Agregar evento</button>
+            </div>
+        </ui-gmap-windows>
+    </ui-gmap-markers>
+</ui-gmap-google-map>
