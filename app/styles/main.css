@@ -15,3 +15,13 @@ body {
 	display: block;
 	margin: 0 auto;
 }
+
+.thumbnail{
+	text-align: center;
+	padding-top: 10px;
+}
+
+.thumbnail i{
+    float: right;
+    padding-right: 5px;
+}
