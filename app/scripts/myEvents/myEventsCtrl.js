@@ -6,8 +6,10 @@
         var vm = this;
         vm.events = myEventsFactory.getLocalStorage('data');
 
-        vm.remove = function(evento) {
+
+        vm.remove = function(evento, index) {
             myEventsFactory.deleteFromLocalStorage('data', evento.id);
+            vm.events.splice(index, 1);
         }
 
         vm.goFace = function(evento){

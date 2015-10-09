@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-6 col-md-4" ng-repeat="evento in myEvents.events track by $index">
     <div class="thumbnail">
-      <i class="ion-close-round" ng-click="myEvents.remove(evento)"></i>
+      <i class="ion-close-round" ng-click="myEvents.remove(evento, $index)"></i>
       <img ng-src="{{evento.img}}" alt="">
       <div class="caption">
         <h3>{{evento.name}}</h3>
