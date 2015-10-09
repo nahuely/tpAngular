@@ -10,6 +10,9 @@
             myEventsFactory.deleteFromLocalStorage('data', evento.id);
         }
 
+        vm.goFace = function(evento){
+            myEventsFactory.goFacebook(evento);
+        }
     }
 
     angular.module('eventsApp.myEvents.controllers', [])

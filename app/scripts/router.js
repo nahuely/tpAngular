@@ -33,11 +33,11 @@
                 url: '/myevents',
                 templateUrl: 'views/myevents.html',
                 controller: 'myEventsCtrl as myEvents',
-                resolve: {
-                    eventos: function(myEventsFactory) {
-                        return myEventsFactory.getLocalStorage()
-                    }
-                }
+                // resolve: {
+                //     eventos: function(myEventsFactory) {
+                //         return myEventsFactory.getLocalStorage()
+                //     }
+                // }
             })
             .state('home.contact', {
                 url: '/contact',

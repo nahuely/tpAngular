@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-sm-6 col-md-4" ng-repeat="evento in myEvents.events track by $index">
     <div class="thumbnail">
-      <i class="ion-close-round" ng-click="vm.remove(evento)"></i>
-      <img ng-src="{{evento.img}}" alt="{{evento.name}}">
+      <i class="ion-close-round" ng-click="myEvents.remove(evento)"></i>
+      <img ng-src="{{evento.img}}" alt="">
       <div class="caption">
         <h3>{{evento.name}}</h3>
         <p>{{evento.telefono}}</p>
-        <p><a class="btn btn-default" role="button" ng-click="goFacebook(event)">Ver en Facebook</a></p>
+        <p><a class="btn btn-default" role="button" ng-click="myEvents.goFace(evento)">Ver en Facebook</a></p>
       </div>
     </div>
   </div>
