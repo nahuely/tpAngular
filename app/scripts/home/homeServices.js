@@ -13,7 +13,7 @@
             $http({
                     method: 'get',
                     url: endPoint,
-                    timeout: 2000
+                    timeout: 5000
                 })
                 .success(function(data) {
                     deferred.resolve(data);
@@ -50,7 +50,7 @@
                 obj.latitude = val.location.latitude;
                 obj.longitude = val.location.longitude;
                 obj.description = val.description || '';
-                obj.stret = val.location.street;
+                obj.street = val.location.street;
                 obj.likes = val.likes;
                 obj.show = false;
                 obj.icon = '//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';

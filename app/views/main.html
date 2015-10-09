@@ -1,13 +1,8 @@
 <ui-gmap-google-map center='Main.map.center' zoom='Main.map.zoom'>
     <ui-gmap-marker coords='{latitude: Main.location.lat, longitude: Main.location.long}' idkey="100"></ui-gmap-marker>
-    <ui-gmap-markers models="Main.eventosArr" coords="'self'" icon="'icon'">
-		<ui-gmap-windows show="show">
-            <div ng-non-bindable>
-            	<img class="img-map" src="{{img}}" alt="">
-            	<h6>{{name}}</h6>
-				<p>{{description}}</p>
-				<button class="btn btn-success" ng-click="addEvent(this)">Agregar evento</button>
-            </div>
-        </ui-gmap-windows>
+    <ui-gmap-window show="Main.windows.show" coords="Main.windows.model" options="Main.windows.options" closeClick="Main.windows.closeClick()" templateUrl="'views/infoView.html'" templateParameter="Main.windows">
+      
+    </ui-gmap-window>
+    <ui-gmap-markers models="Main.eventosArr" coords="'self'" icon="'icon'" events="Main.map.markersEvents">
     </ui-gmap-markers>
 </ui-gmap-google-map>
