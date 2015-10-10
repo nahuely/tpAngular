@@ -35,7 +35,6 @@
             jsonArr.push(val);
 
             $window.localStorage.setItem(key, angular.toJson(jsonArr));            
-            return newArray;
         }
 
 
