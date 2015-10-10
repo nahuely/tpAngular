@@ -5,7 +5,7 @@
         var methods = {};
 
         methods.getLocalStorage = function(key) {
-            var array = angular.fromJson($window.localStorage.getItem(key));
+            var array = angular.fromJson($window.localStorage.getItem(key)) || [];
 
             for(var i=0;i<array.length; i++){
                 if(array[i].img == ""){
@@ -29,6 +29,16 @@
             
             return newArray;
         }
+
+        methods.setItemLocalStorage = function(key, val) {
+            var jsonArr = this.getLocalStorage(key);
+            jsonArr.push(val);
+
+            $window.localStorage.setItem(key, angular.toJson(jsonArr));            
+            return newArray;
+        }
+
+
         methods.goFacebook = function(obj){
             console.log(this)
             $window.open('http://www.facebook.com/'+obj.id,'_blank');

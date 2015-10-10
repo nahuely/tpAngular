@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function homeCtrl($scope, eventos, homeFactory) {
+    function homeCtrl($scope, eventos, homeFactory, myEventsFactory) {
         var vm = this;
 
         vm.location = homeFactory.getLocationStorage();
@@ -33,11 +33,11 @@
             parent: vm
         }
 
-        vm.add = function() {
-            console.log("asda")
+        vm.add = function(model) {
+            return myEventsFactory.setItemLocalStorage('data', model);
         }
     }
 
     angular.module('eventsApp.home.controllers', [])
-        .controller('homeCtrl', ['$scope', 'eventos', 'homeFactory', homeCtrl])
+        .controller('homeCtrl', ['$scope', 'eventos', 'homeFactory', 'myEventsFactory', homeCtrl])
 })();
